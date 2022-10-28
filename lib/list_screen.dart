@@ -4,7 +4,8 @@ import 'package:go_router_responsive_sample/list_widget.dart';
 import 'package:go_router_responsive_sample/main.dart';
 
 class ListScreen extends StatefulWidget {
-  const ListScreen({Key? key}) : super(key: key);
+  final String? argIndex;
+  const ListScreen({this.argIndex, Key? key}) : super(key: key);
 
   @override
   State<ListScreen> createState() => _ListScreenState();
@@ -13,6 +14,16 @@ class ListScreen extends StatefulWidget {
 class _ListScreenState extends State<ListScreen> {
   String index = '';
   bool isLargeScreen = false;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.argIndex != null) {
+      index = widget.argIndex!;
+    } else {
+      index = '1';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

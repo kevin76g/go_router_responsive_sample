@@ -27,7 +27,7 @@ class _ListWidgetState extends State<ListWidget> {
   void _onTapListTile(int index) {
     bool isLargeScreen = MediaQuery.of(context).size.width > largeScreenSize;
     if (isLargeScreen) {
-      GoRouter.of(context).go('/large-list/${index.toString()}');
+      GoRouter.of(context).go('/list/${index.toString()}');
       widget.onItemSelected!(index.toString());
     } else {
       GoRouter.of(context).go('/list/detail/${index.toString()}');
